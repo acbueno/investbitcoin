@@ -1,4 +1,4 @@
-package br.com.acbueno.bitcoinbuy.service;
+package br.com.acbueno.bitcoinbuy.service.impl;
 
 import java.util.Optional;
 
@@ -14,6 +14,7 @@ import br.com.acbueno.bitcoinbuy.model.User;
 import br.com.acbueno.bitcoinbuy.repository.AccountRepository;
 import br.com.acbueno.bitcoinbuy.repository.TranscationRepository;
 import br.com.acbueno.bitcoinbuy.repository.UserRepository;
+import br.com.acbueno.bitcoinbuy.service.AccountService;
 
 @Service
 public class AccountServiceImpl implements AccountService {

@@ -1,4 +1,4 @@
-package br.com.acbueno.bitcoinbuy.service;
+package br.com.acbueno.bitcoinbuy.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -7,6 +7,7 @@ import br.com.acbueno.bitcoinbuy.model.Account;
 import br.com.acbueno.bitcoinbuy.model.User;
 import br.com.acbueno.bitcoinbuy.repository.AccountRepository;
 import br.com.acbueno.bitcoinbuy.repository.UserRepository;
+import br.com.acbueno.bitcoinbuy.service.UserService;
 
 @Service
 public class UserServiceImpl implements UserService {

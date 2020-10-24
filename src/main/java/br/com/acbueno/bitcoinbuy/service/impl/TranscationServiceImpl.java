@@ -1,4 +1,4 @@
-package br.com.acbueno.bitcoinbuy.service;
+package br.com.acbueno.bitcoinbuy.service.impl;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -13,6 +13,7 @@ import br.com.acbueno.bitcoinbuy.model.Transcation;
 import br.com.acbueno.bitcoinbuy.model.User;
 import br.com.acbueno.bitcoinbuy.repository.TranscationRepository;
 import br.com.acbueno.bitcoinbuy.repository.UserRepository;
+import br.com.acbueno.bitcoinbuy.service.TranscationService;
 
 @Service
 public class TranscationServiceImpl implements TranscationService {
