@@ -1,76 +1,103 @@
 package br.com.acbueno.bitcoinbuy.model;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
-@Document(collection = "transaction")
+import br.com.acbueno.bitcoinbuy.enums.Operator;
+
+@Entity
+@Table(name = "transcation")
 public class Transcation {
 
   @Id
-  String id;
+  @GeneratedValue( strategy=GenerationType.IDENTITY)
+  @Column(name = "transcation_id")
+  private Long id;
 
-  String cpf;
+  @Column(name = "credit")
+  private Float credit;
 
-  float shopBTC;
+  @Column(name = "bitcoin")
+  private Float bitcoin;
 
-  float expenseBTC;
+  @ManyToOne
+  @JoinColumn(name = "user_id")
+  private User user;
 
-  float currecyBTC;
+  @Enumerated(EnumType.STRING)
+  private Operator operator;
   
-  public Transcation() {
+  @Column(name = "debit")
+  private Float debit;
+
+  public Float getCredit() {
+    return credit;
   }
 
-  public Transcation(String cpf, float shopBTC, float expenseBTC, float currecyBTC) {
-    this.cpf = cpf;
-    this.shopBTC = shopBTC;
-    this.expenseBTC = expenseBTC;
-    this.currecyBTC = currecyBTC;
+  public void setCredit(Float credit) {
+    this.credit = credit;
   }
 
-  public String getId() {
+  public Float getBitcoin() {
+    return bitcoin;
+  }
+
+  public void setBitcoin(Float bitcoin) {
+    this.bitcoin = bitcoin;
+  }
+
+  public User getUser() {
+    return user;
+  }
+
+  public void setUser(User user) {
+    this.user = user;
+  }
+
+  public Operator getOperator() {
+    return operator;
+  }
+
+  public void setOperator(Operator operator) {
+    this.operator = operator;
+  }
+
+  public Long getId() {
     return id;
   }
+  
+  
 
-  public void setId(String id) {
-    this.id = id;
+  public Float getDebit() {
+    return debit;
   }
 
-  public String getCpf() {
-    return cpf;
+  public void setDebit(Float debit) {
+    this.debit = debit;
   }
 
-  public void setCpf(String cpf) {
-    this.cpf = cpf;
-  }
+  public Transcation() {}
 
-  public float getShopBTC() {
-    return shopBTC;
-  }
-
-  public void setShopBTC(float shopBTC) {
-    this.shopBTC = shopBTC;
-  }
-
-  public float getExpenseBTC() {
-    return expenseBTC;
-  }
-
-  public void setExpenseBTC(float expenseBTC) {
-    this.expenseBTC = expenseBTC;
-  }
-
-  public float getCurrecyBTC() {
-    return currecyBTC;
-  }
-
-  public void setCurrecyBTC(float currecyBTC) {
-    this.currecyBTC = currecyBTC;
+  public Transcation(Float credit, Float bitcoin, User user, Operator operator, Float debit) {
+    this.credit = credit;
+    this.bitcoin = bitcoin;
+    this.user = user;
+    this.operator = operator;
+    this.debit = debit;
   }
 
   @Override
   public String toString() {
-    return "Transcation [id=" + id + ", cpf=" + cpf + ", shopBTC=" + shopBTC + ", expenseBTC="
-        + expenseBTC + ", currecyBTC=" + currecyBTC + "]";
-  }  
+    return "Transcation [id=" + id + ", credit=" + credit + ", bitcoin=" + bitcoin + ", user="
+        + user + ", operator=" + operator + "]";
+  }
 
 }

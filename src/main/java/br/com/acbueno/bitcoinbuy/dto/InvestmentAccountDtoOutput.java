@@ -1,35 +1,80 @@
 package br.com.acbueno.bitcoinbuy.dto;
 
-import br.com.acbueno.bitcoinbuy.model.UserBalance;
+import java.util.List;
+import br.com.acbueno.bitcoinbuy.model.Transcation;
 
 public class InvestmentAccountDtoOutput {
 
-  private Float amountBRL;
-  private Float amountBTC;
+  private Float saldBRL;
 
-  public Float getAmountBRL() {
-    return amountBRL;
+  private Float saldBTC;
+
+  private Float InvestmentBRL;
+
+  private Float currencyBTC;
+
+  private Float profit;
+  
+  private List<Transcation> transcation;
+
+
+  public Float getSaldBRL() {
+    return saldBRL;
   }
 
-  public void setAmountBRL(Float amountBRL) {
-    this.amountBRL = amountBRL;
+  public void setSaldBRL(Float saldBRL) {
+    this.saldBRL = saldBRL;
   }
 
-  public Float getAmountBTC() {
-    return amountBTC;
+  public Float getSaldBTC() {
+    return saldBTC;
   }
 
-  public void setAmountBTC(Float amountBTC) {
-    this.amountBTC = amountBTC;
+  public void setSaldBTC(Float saldBTC) {
+    this.saldBTC = saldBTC;
   }
 
-  public UserBalance transformaParaObjeto() {
-    return new UserBalance(amountBRL, amountBTC);
+  public Float getInvestmentBRL() {
+    return InvestmentBRL;
+  }
+
+  public void setInvestmentBRL(Float investmentBRL) {
+    InvestmentBRL = investmentBRL;
+  }
+
+  public Float getCurrencyBTC() {
+    return currencyBTC;
+  }
+
+  public void setCurrencyBTC(Float currencyBTC) {
+    this.currencyBTC = currencyBTC;
+  }
+
+
+
+  public Float getProfit() {
+    return profit;
+  }
+
+  public void setProfit(Float profit) {
+    this.profit = profit;
+  }
+
+
+
+  public List<Transcation> getTranscation() {
+    return transcation;
+  }
+
+  public void setTranscation(List<Transcation> transcation) {
+    this.transcation = transcation;
   }
 
   @Override
   public String toString() {
-    return "InvestmentAccountDtoOutput [amountBRL=" + amountBRL + ", amountBTC=" + amountBTC + "]";
+    return "InvestmentAccountDtoOutput [saldBRL=" + saldBRL + ", saldBTC=" + saldBTC
+        + ", InvestmentBRL=" + InvestmentBRL + ", currencyBTC=" + currencyBTC + ", profit=" + profit
+        + ", transcation=" + transcation + "]";
   }
 
 }

@@ -2,13 +2,20 @@ package br.com.acbueno.bitcoinbuy.repository;
 
 import java.util.List;
 
-import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
+import br.com.acbueno.bitcoinbuy.enums.Operator;
+import br.com.acbueno.bitcoinbuy.model.Account;
 import br.com.acbueno.bitcoinbuy.model.Transcation;
+import br.com.acbueno.bitcoinbuy.model.User;
 
-public interface TranscationRepository extends MongoRepository<Transcation, String> {
+public interface TranscationRepository extends JpaRepository<Transcation, Long> {
   
-   List<Transcation> findByCpf(String cpf); 
-
+  List<Transcation> findByUser(User user);
+  
+  List<Transcation> findByOperator(Operator operator);
+  
+  
+   
 
 }
