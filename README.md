@@ -1,3 +1,5 @@
 # investbitcoin
-Api ultizando Spring boot e mongodb
-Serviços descrito no Swagger.
+Api Rest de Conta de Investimento em Bitcoin.
+Framkework: Spring Boot.
+Bando dados: Mysql.
+Documentação Api: Descrita no Swagger.
