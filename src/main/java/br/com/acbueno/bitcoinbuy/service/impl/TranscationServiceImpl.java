@@ -53,9 +53,24 @@ public class TranscationServiceImpl implements TranscationService {
     List<Transcation> listLastTranscation = listTranscationByUser(cpf);
     Collections.reverse(listLastTranscation);
 
-    for (int i = 0; i < 5; i++) {
-      fiveLastTranscation.add(listLastTranscation.get(i));
-      logger.info("Value add List fiveLastTranscation: " + listLastTranscation.get(i).toString());
+    int numberTranscation = listLastTranscation.size();
+
+    if (numberTranscation == 0) {
+      fiveLastTranscation.isEmpty();
+    } else if (numberTranscation == 1) {
+      fiveLastTranscation.add(listLastTranscation.get(0));
+      logger.info("Value add List fiveLastTranscation: " + listLastTranscation.get(0).toString());
+    } else if (numberTranscation < 5 && numberTranscation > 0) {
+      numberTranscation = numberTranscation - 1;
+      for (int i = 0; i <= numberTranscation; i++) {
+        fiveLastTranscation.add(listLastTranscation.get(i));
+        logger.info("Value add List fiveLastTranscation: " + listLastTranscation.get(i).toString());
+      }
+    } else {
+      for (int i = 0; i <= 5; i++) {
+        fiveLastTranscation.add(listLastTranscation.get(i));
+        logger.info("Value add List fiveLastTranscation: " + listLastTranscation.get(i).toString());
+      }
     }
 
     return fiveLastTranscation;
